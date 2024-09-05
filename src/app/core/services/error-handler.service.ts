@@ -3,14 +3,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { of } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ErrorHandlerService {
+  constructor(private snackBar: MatSnackBar) {}
 
-  constructor(private snackBar: MatSnackBar) { }
-
-  handleError(e: any,methodName:string, res = undefined){
-      this.snackBar.open(`${e.error.message}( ${methodName} )`, 'Close')
-      return of(res)
+  handleError(e: any, methodName: string, res = undefined) {
+    this.snackBar.open(`${e.error.message}( ${methodName} )`, 'Close');
+    return of(res);
   }
 }

@@ -1,0 +1,9 @@
+td, th {
+  @apply text-center;
+}
+
+tr {
+  &:hover {
+    @apply bg-gray-100 cursor-pointer;
+  }
+}

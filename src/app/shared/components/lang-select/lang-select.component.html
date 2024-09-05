@@ -1,0 +1,20 @@
+<div>
+  <div
+    [matMenuTriggerFor]="langMenu"
+    class="rounded p-2 flex gap-1 items-center cursor-pointer"
+    matTooltip="Tilni tanlash"
+  >
+    <span>
+      {{ selectedLanguage[userSelectedLanguage] }}
+    </span>
+    <mat-icon>keyboard_arrow_down</mat-icon>
+  </div>
+  <mat-menu #langMenu="matMenu">
+    <div (click)="changeLanguage(Languages.UZ_LAT)" mat-menu-item>
+      O'zbekcha
+    </div>
+    <div (click)="changeLanguage(Languages.UZ_CYR)" mat-menu-item>Ўзбекча</div>
+    <div (click)="changeLanguage(Languages.RU)" mat-menu-item>Русский</div>
+    <div (click)="changeLanguage(Languages.EN)" mat-menu-item>English</div>
+  </mat-menu>
+</div>

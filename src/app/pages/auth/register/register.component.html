@@ -1,0 +1,62 @@
+<div class="w-full h-[100vh] bg-[#eee] flex justify-center items-center">
+    <div class="bg-white w-[500px] rounded shadow p-8 flex flex-col gap-6">
+        <h1 class="text-center font-bold text-lg">
+            {{ 'REGISTER' | translate }}
+        </h1>
+        <form (ngSubmit)="register()" class="flex flex-col gap-3" [formGroup]="form">
+            <mat-form-field class="w-full" appearance="outline">
+                <mat-label>
+                    {{
+                        'NAME' | translate
+                      }}
+                </mat-label>
+                <input formControlName="name" type="text" matInput/>
+                @if(form.controls['name'].hasError('minlength')){
+                    <mat-error>Name should be longer than 4 characters</mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field class="w-full" appearance="outline">
+                <mat-label>
+                  {{
+                      'EMAIL' | translate
+                    }}
+                </mat-label>
+                <input formControlName="email" type="email" matInput/>
+                @if(form.controls['email'].hasError('email')){
+                    <mat-error>email should be valid</mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field class="w-full" appearance="outline">
+                <mat-label>
+                    {{
+                        'PASSWORD' | translate
+                      }}
+                </mat-label>
+                <input formControlName="password" type="password" matInput/>
+                @if(form.controls['password'].hasError('minlength')){
+                    <mat-error>password should be at least 8 characters</mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field class="w-full" appearance="outline">
+                <mat-label>{{
+                    'CONFIRM_PASSWORD' | translate
+                  }}</mat-label>
+                <input formControlName="password_confirmation" type="password" matInput/>
+                @if(form.hasError('confirmPasswordMismatch')){
+                    <mat-error>passwords should be same</mat-error>
+                }
+            </mat-form-field>
+            <div class="flex flex-row justify-end">
+                <button
+                [disabled]="form.invalid"
+                type="submit"
+                    mat-flat-button>
+                    {{ 'REGISTER' | translate }}
+                </button>
+            </div>
+        </form>
+      <a mat-button routerLink="/auth/login">
+        {{ 'LOGIN' | translate }}
+      </a>
+    </div>
+</div>

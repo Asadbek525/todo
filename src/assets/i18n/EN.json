@@ -1,0 +1,16 @@
+{
+  "LOGIN": "Login",
+  "EMAIL": "Email",
+  "PASSWORD": "Password",
+  "REGISTER": "Register",
+  "CONFIRM_PASSWORD": "Confirm Password",
+  "TODOS": "Todos",
+  "TITLE": "Title",
+  "DESCRIPTION": "Description",
+  "ACTIONS": "Actions",
+  "STATUS": "Status",
+  "CREATED_AT": "Created At",
+  "UPDATED_AT": "Updated At",
+  "CREATE_EDIT": "Create/Edit",
+  "NAME": "Name"
+}

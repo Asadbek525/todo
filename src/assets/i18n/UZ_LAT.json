@@ -1,0 +1,16 @@
+{
+  "LOGIN": "Kirish",
+  "EMAIL": "Elektron pochta",
+  "PASSWORD": "Parol",
+  "REGISTER": "Ro'yxatdan o'tish",
+  "CONFIRM_PASSWORD": "Parolni tasdiqlang",
+  "TODOS": "Vazifalar",
+  "TITLE": "Sarlavha",
+  "DESCRIPTION": "Tavsif",
+  "ACTIONS": "Amallar",
+  "STATUS": "Holat",
+  "CREATED_AT": "Yaratilgan vaqti",
+  "UPDATED_AT": "O'zgartirilgan vaqti",
+  "CREATE_EDIT": "Yaratish/O'zgartirish",
+  "NAME": "Ism"
+}

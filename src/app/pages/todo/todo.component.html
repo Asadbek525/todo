@@ -1,0 +1,67 @@
+<div class="w-full h-[100vh] flex flex-col bg-[#eee]">
+  <div class="flex w-full justify-between bg-white px-8 py-4">
+    <h1
+      appHeader
+    >ToDoApp</h1>
+    <div class="flex flex-row gap-2">
+  <app-lang-select></app-lang-select>
+      <button mat-icon-button (click)="logout()">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="rounded shadow bg-white flex flex-col mx-auto gap-4 w-[1000px] p-8 my-8">
+    <div class="flex flex-row justify-between">
+      <h1 class="font-bold text-lg">Todos</h1>
+      <button (click)="openSaveDialog($event)" mat-icon-button>
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <table class="border">
+      <thead>
+      <tr>
+        <th class="px-2 py-1">Title</th>
+        <th class="px-2 py-1">Description</th>
+        <th class="px-2 py-1">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+        @for (task of todoTasks$ | async; track task.id) {
+          <tr class="border-t" (click)="toggleExpandedTask(task)">
+            <td class="px-2 py-1">{{ task.title }}</td>
+            <td class="px-2 py-1">{{ task.description }}</td>
+            <td class="px-2 py-1">
+              <button (click)="openSaveDialog($event,task)" mat-icon-button>
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button (click)="deleteTask($event,task.id)" mat-icon-button>
+                <mat-icon style="color: red;">delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <div [@expandCollapse]="expandedElement?.id === task.id ? 'expanded' : 'collapsed'"
+                   class="flex overflow-hidden w-full">
+                <div class="grid grid-cols-3 py-8 w-full">
+                  <div>
+                    <p>Status</p>
+                    <p>{{ task.completed ? 'completed' : 'in_progress' }}</p>
+                  </div>
+                  <div>
+                    <p>Created at</p>
+                    <p>{{ task.created_at | dateFormat:DATE_FORMAT }}</p>
+                  </div>
+                  <div>
+                    <p>Updated at</p>
+                    <p>{{ task.updated_at | dateFormat:DATE_FORMAT }}</p>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
